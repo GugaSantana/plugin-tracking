@@ -1,0 +1,350 @@
+/* Imports */
+
+@import url("base.css");
+
+/* General Page Styles */
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 35.1em;
+  height: 6.2em;
+  /*
+  Height breakdown:
+    Single-row notification table: 2.7em.
+    HR bottom margin: 0.5em.
+    Controls top margin: 1em.
+    Controls height: 1em.
+    Controls bottom margin: 1em.
+  */
+}
+
+hr {
+  border-top: none;
+  border-bottom: 1px gray dotted;
+  margin-top: 0;
+}
+
+/* Main Controls */
+
+.main_controls {
+  text-align: right;
+  white-space: nowrap;
+  height: 10em;
+  margin-top: 10em;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 1em;
+  
+}
+
+.main_controls>span {
+  text-align: left;
+  color: black;
+  cursor: pointer;
+  margin: 0 5px;
+
+}
+.page_controls
+{
+  width: 800px;
+  float:right;
+  margin-right: 10px;
+  margin-bottom: 3px;
+  margin-top:-13px;
+}
+
+.page_controls>span {
+  color: black;
+  margin-left: 5px;
+ 
+  width: auto;
+  text-align: right;
+  cursor: pointer;
+}
+
+.main_controls>span:hover, .page_controls>span:hover {
+  text-shadow: black 0 -1px 0;
+}
+
+.main_controls>span img, .page_controls>span img {
+  vertical-align: middle;
+}
+
+.main_controls>span.inactive {
+  color: #999;
+  cursor: default;
+}
+
+.main_controls>span.inactive:hover {
+  text-shadow: none;
+}
+
+#monitor_page.inprogress {
+  cursor: progress;
+}
+
+/* Loading Bar */
+
+.loading {
+  width: 100%;
+}
+
+.loading_spacer {
+  height: 2.7em;
+}
+
+.loading_spacer td {
+  background: url('../img/loader.gif') center 16px no-repeat;
+}
+
+/* Fixes */
+
+.notification div {
+  /* Needed to avoid jQuery animation stutter. */
+  min-width: 10px;
+  margin-left: 10px;
+}
+
+
+.current_price_container{
+  font-weight: bold;
+  color:#900 !important;
+}
+
+.current_price{
+  font-weight: bold;
+  color:#900 !important;
+  font-size: 16px;
+}
+
+.current_price_time
+{
+  font-weight: normal;
+  color: grey;
+  font-size: 12px;
+}
+
+.initial_price_time{
+   font-weight: normal;
+  color: grey;
+  font-size: 12px;
+}
+
+.min_price_time{
+   font-weight: normal;
+  color: grey;
+  font-size: 12px;
+}
+.min_price_container{
+  font-weight: bold;
+}
+
+.min_price{
+  font-weight: normal;
+  color:#AAAAAA !important;
+  font-size: 12px;
+}
+
+.initial_price_container{
+  font-weight: bold;
+  margin-left: 0px;
+}
+
+.initial_price{
+  font-weight: normal;
+  color:#AAAAAA !important;
+  font-size: 12px;
+}
+
+.stop_monitoring{
+  float: right;
+  margin-right: 0px;
+}
+
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+ol.main_table
+{
+  list-style-type: none;
+  margin-left: -40px;
+}
+ol.main_table li
+{
+  padding-top: 5px;
+}
+
+ol.main_table li.placeholder {
+  position: relative;
+/*  margin-left: 20px;*/
+  /** More li styles **/
+}
+ol.main_table li.placeholder:before {
+  position: absolute;
+  /** Define arrowhead **/ 
+}
+
+.empty
+{
+  text-align: center;
+}
+
+.head_links>span {
+  text-align: left;
+  color: black;
+  cursor: pointer;
+  margin: 0 1.1em;
+}
+
+.folder_name{
+  cursor: text;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.folder{
+   margin: 0px;
+}
+
+.folder_products{
+  margin-top: 8px;
+  margin-left: -20px;
+  list-style: none;
+}
+
+
+.percentage_increase {
+    float: right;
+    min-width: 60px;
+    text-align: center;
+    margin-right: 30px;
+    margin-top: -2px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1;
+    background-color: #882626;
+    background-position: initial initial;
+    background-repeat: repeat no-repeat;
+    border: 3px solid #882626;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: grey 0 1px 3px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: black 0 1px 1px;
+
+}
+
+.percentage_drop
+{
+    float: right;
+    min-width: 60px;
+    text-align: center;
+    margin-right: 30px;
+    margin-top: -2px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1;
+    background-color: green;
+    background-position: initial initial;
+    background-repeat: repeat no-repeat;
+    border: 3px solid green;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: grey 0 1px 3px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: black 0 1px 1px;
+    
+}
+.rename_page, .check_now_page, .reselect_price {
+  cursor: pointer;
+  vertical-align: middle; 
+}
+
+#check_now
+{
+  float:left;
+}
+
+#monitor_page
+{
+    float:right;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    margin-left: 30px;
+}
+
+ .rename_folder, .remove_folder, .modify, .open_links_folder
+{
+  cursor: pointer;
+  vertical-align: top; 
+  float:right;
+}
+
+.open_links_folder
+{
+  margin-right: 7px;
+}
+
+ .rename_page, .reselect_price, .stop_monitoring
+{ 
+  visibility: hidden;
+}
+
+#add_folder{
+  float: right;
+}
+
+#view_all{
+  float: left;
+  margin-left: 20px;
+}
+
+#notify_all{
+  float: left;
+  margin-left: 20px;
+  background-color:yellow;
+}
+
+#notify_all.inactive{
+  background-color:transparent;
+}
+
+.mark_visited, .revert_initial_price{
+  visibility:hidden;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+#booking{
+    float: left;
+}
+
+#ebay{
+    float: left;
+    margin-top: -2px;
+}
+
+#amazon{
+    float: left;
+}
