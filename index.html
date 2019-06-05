@@ -1,7 +1,8 @@
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Listen Pricing</title>
-	<script type="text/javascript" src="lib/jquery-1.7.1.js"></script>
+	  <script type="text/javascript" src="lib/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="lib/jquery-sortable.js"></script>
     <script type="text/javascript" src="scripts/base.js"></script>
     <script type="text/javascript" src="scripts/popup.js"></script>
@@ -16,19 +17,20 @@
     </style>
   </head>
   <body >
-<br>
-<br>
-    <div class="text-center align-middle">
-      <select id="groups">
-        <option value="-1">Selecione um grupo:</option>
-      </select>
+    <br>
+    <b><center>LISTEN PRICING</center></b>
+    <br>
+    <div class="container">
+        <div class="form-group text-center">
+          <select id="groups" class="form-control">
+            <option value="-1">Selecione um grupo:</option>
+          </select>
+        </div>
+        <div class="form-group text-center">
+          <span id="monitor_page">
+            <button class="btn btn-danger">SELECIONAR PREÇO</button>
+          </span>      
+        </div>
     </div>
-<br>
-    <div class="text-center align-middle">
-      <span id="monitor_page">
-        <button class="btn btn-danger">SELECIONAR PRECO</button>
-      </span>      
-    </div>
-
   </body>
 </html>
