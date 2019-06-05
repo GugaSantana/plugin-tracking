@@ -70,7 +70,7 @@ function elementToSelector(element) {
 // by removing its chrome_page_monitor_active class and calls
 // currentElementChanged() to update the selection. Elements inside the control
 // block are ignored during selection.
-function setUpBodyHandlers() {
+function setUpBodyHandlers(id_group) {
   $('body').mousemove(function(e) {
     if (pick_mode) {
       $('*').removeClass(TEMP_OUTLINE_CLASS);
@@ -97,15 +97,15 @@ function setUpBodyHandlers() {
             name: vname,
             link: vlink,
             tag: vtag.replace(/"/g,"'"),
-            group_id: 149
+            group_id: id_group
         }
 
         //console.log(JSON.stringify(d));
 			
 		  var verifyPrice = pick_price.replace('R$ ', '').replace('R$', '').replace(',','').replace('.','');
-		  alert(verifyPrice);
-		  
-		  if(!isNaN(verifyPrice)){
+		  //alert(verifyPrice);
+
+      if(!isNaN(verifyPrice)){
 			
 			  fetch("https://za7gskmdj6.execute-api.us-east-1.amazonaws.com/dev/products", {
 				method: 'post',
@@ -150,8 +150,8 @@ function setUpBodyHandlers() {
 // The main function. Inserts the controls, updates the global references to
 // them, then sets up event handlers for everything by calling
 // setUpBodyHandlers() and setUpButtonHandlers().
-function initialize() {
-  setUpBodyHandlers();
+function initialize(id_group) {
+  setUpBodyHandlers(id_group);
 }
 
 function removeFrame()

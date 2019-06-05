@@ -43,13 +43,17 @@ function markPageVisited() {
 
 // Adds the page in the currently selected tab to the monitored list.
 function monitorCurrentPage() {
-  //alert('1');
+  var id_group = document.querySelector('#groups');
+
+  if(id_group.value == -1){
+    alert('Selecione um grupo!');
+    return;
+  }
+
   $('#monitor_page').addClass('inprogress');
   chrome.tabs.getSelected(null, function(tab) {
-    initializePageModePickerPopup(tab);
-    //_gaq.push(['_trackEvent', tab.url, 'add']);
-
-    
+    initializePageModePickerPopup(tab, id_group.value);
+    //_gaq.push(['_trackEvent', tab.url, 'add']);  
   });
 }
 
@@ -965,12 +969,12 @@ function findUrlPage(context) {
 // Initializes the Pick button in the page mode selector. On click, the button
 // spawns a tab with the URL of the page in the its record, then injects jquery,
 // followed by scripts/selector.js  and styles/selector.css into the tab.
-function initializePageModePickerPopup(tab) {
+function initializePageModePickerPopup(tab, id_group) {
   chrome.tabs.executeScript(tab.id, {file: 'lib/jquery-1.7.1.js'},
         function() {
           chrome.tabs.executeScript(tab.id, {file: 'scripts/selector.js'},
           function() {
-            chrome.tabs.executeScript(tab.id, {code: '$(initialize);'});
+            chrome.tabs.executeScript(tab.id, {code: 'initialize('+ id_group +');'});
             });
           chrome.tabs.insertCSS(tab.id, {file: 'styles/selector.css'});
   
@@ -979,9 +983,33 @@ function initializePageModePickerPopup(tab) {
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-  var login = document.querySelector('input#login');
+  const selectGroups = document.querySelector('#groups');
+  populateGroupsSelect();
 
-  login.addEventListener('click', function() {
-      alert("FUNCIONA FILHO DA PUTAAA");
-  });
+  function populateGroupsSelect(){
+    fetch("https://za7gskmdj6.execute-api.us-east-1.amazonaws.com/dev/monitoring/list?userId=1", {
+      method: 'get',
+
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": "jQ29xfDWTZ9SKDLAe1tf35FxYXtYWpnG371VSwS7"
+      },
+
+    })
+    .then((resp) => resp.json())
+    .then(groups => {
+
+      groups.map(group => {
+
+        const option = document.createElement('option');
+
+        option.setAttribute('value', group.id_group);
+        option.textContent = group.name;
+
+        selectGroups.appendChild(option);
+      });
+
+    })
+  }
+
 });
