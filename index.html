@@ -6,23 +6,29 @@
     <script type="text/javascript" src="scripts/base.js"></script>
     <script type="text/javascript" src="scripts/popup.js"></script>
     <script type="text/javascript" src="scripts/popup-entry.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <style>
       html, body{
-        width: 200px;
-        height: 100px
+        width: 300px;
+        height: 200px
       }
     </style>
   </head>
   <body >
-
-    <select id="groups">
-      <option value="-1">Selecione um grupo:</option>
-    </select>
-    <br>
-    <br>
-    <span id="monitor_page">
-      <button>SELECIONAR PRECO</button>
-    </span>
+<br>
+<br>
+    <div class="text-center align-middle">
+      <select id="groups">
+        <option value="-1">Selecione um grupo:</option>
+      </select>
+    </div>
+<br>
+    <div class="text-center align-middle">
+      <span id="monitor_page">
+        <button class="btn btn-danger">SELECIONAR PRECO</button>
+      </span>      
+    </div>
 
   </body>
 </html>
